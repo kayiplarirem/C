@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Fonksiyon prototipi
+void ertelemeMesajiYaz(int bugun);
+
+int main() {
+    int bugun;
+
+    printf("Bugunun gun numarasini girin (1=Pazar, 7=Cumartesi): ");
+    scanf("%d", &bugun);
+
+    ertelemeMesajiYaz(bugun);
+
+    return 0;
+}
+
+void ertelemeMesajiYaz(int bugun) {
+    // Rastgele sayı üretimi için tohumu başlatıyoruz
+    srand(time(NULL));
+
+    int ertelemeGun;
+    do {
+        ertelemeGun = (rand() % 7) + 1;  // 1 ile 7 arası bir sayı üretir
+    } while (ertelemeGun == bugun);  // Eğer üretilen gün bugünse, yeni bir gün üret
+
+    printf("Teslimat %d. gune ertelenmistir.\n", ertelemeGun);
+}
+
