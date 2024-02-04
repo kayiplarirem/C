@@ -1,0 +1,27 @@
+include <stdio.h>
+
+int main() {
+    int lamps[50] = {0}; // Sönük lambaları temsil eden dizi
+    int i, j;
+
+    for (i = 1; i <= 10; ++i) { // Arabaları temsil eden döngü
+        for (j = i; j <= 50; j += i) { // Lambaları temsil eden döngü
+            lamps[j-1] = !lamps[j-1]; // Lambanın durumunu değiştir
+        }
+    }
+
+    printf("Yanik lambalar:\n");
+    for (i = 0; i < 50; ++i) {
+        if (lamps[i] == 1) {
+            printf("%d, ", i+1);
+        }
+    }
+    printf("\nSönük lambalar:\n");
+    for (i = 0; i < 50; ++i) {
+        if (lamps[i] == 0) {
+            printf("%d, ", i+1);
+        }
+    }
+
+    return 0;
+}
