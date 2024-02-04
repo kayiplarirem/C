@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+#define BOYUT 3
+
+void cevir(int a[][BOYUT]) {
+    for (int i = 0; i < BOYUT / 2; i++) {
+        for (int j = 0; j < BOYUT; j++) {
+            int temp = a[i][j];
+            a[i][j] = a[BOYUT - 1 - i][BOYUT - 1 - j];
+            a[BOYUT - 1 - i][BOYUT - 1 - j] = temp;
+        }
+    }
+}
+int main() {
+    int a[BOYUT][BOYUT];
+
+    for (int i = 0; i < BOYUT; i++) {
+        printf("a dizisinin %d. satiri: ", i + 1);
+        for (int j = 0; j < BOYUT; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    printf("\nCevrilmis hali\n");
+    for (int i = BOYUT - 1; i >= 0; i--) {
+        for (int j = BOYUT - 1; j >= 0; j--) {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
