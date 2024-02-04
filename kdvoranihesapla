@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(){
+	
+	float kdvOrani, kdvDahilToplamTutar, kdvMiktari, kdvHaricMalHizmetBedeli;
+
+    printf("Lutfen KDV oranini girin (ornegin 18 yerine 0.18):\n ");
+    scanf("%f", &kdvOrani);
+
+    printf("Lutfen KDV dahil toplam tutari girin (TL):\n ");
+    scanf("%f", &kdvDahilToplamTutar);
+
+    //kdvDahilToplamTutar = kdvHaricMalHizmetBedeli * kdvOrani + kdvHaricMalHizmetBedeli;
+    kdvHaricMalHizmetBedeli = kdvDahilToplamTutar / (1 + kdvOrani);
+    
+    //kdvMiktari = kdvDahilToplamTutar - ((kdvDahilToplamTutar * kdvOrani)/100); 
+	  
+    kdvMiktari = kdvDahilToplamTutar - kdvHaricMalHizmetBedeli;
+
+    kdvHaricMalHizmetBedeli = kdvDahilToplamTutar - kdvMiktari;
+    
+    printf("KDV miktari: %.2f\n", kdvMiktari);
+    printf("KDV haric mal ya da hizmet bedeli: %.2f\n", kdvHaricMalHizmetBedeli);
+    
+    return 0;
+
+}
