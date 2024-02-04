@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int yil = 1986;
+    int gorus_sayisi = 20;
+    int yil_araligi = 75;
+    int yildiz_gorunumleri_2000ler = 0;
+
+    printf("Halley kuyruklu yildizin gorulecegi yillar:\n");
+
+    for (int i = 0; i < gorus_sayisi; ++i) {
+        yil += yil_araligi;
+        printf("%d\n", yil);
+
+        if (yil >= 2000 && yil < 3000) {
+            yildiz_gorunumleri_2000ler++;
+        }
+    }
+
+    printf("Halley kuyruklu yildiz 2000'li yillarda %d kez gorulecektir.\n", yildiz_gorunumleri_2000ler);
+
+    return 0;
+}
