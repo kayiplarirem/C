@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+float cevirTL(float agirlikTL, float agirlikYarim, float agirlikCeyrek, float agirlikOnKurus) {
+    float birTL = 8.2;
+    float yarimTL = 6.8;
+    float ceyrekTL = 4.0;
+    float onKurus = 3.15;
+
+    float toplam = agirlikTL/birTL + agirlikYarim/yarimTL*2 + agirlikCeyrek/ceyrekTL*4 + agirlikOnKurus/onKurus*10;
+
+    return toplam;
+}
+
+int main() {
+    float agirlikTL, agirlikYarim, agirlikCeyrek, agirlikOnKurus;
+
+    printf("1 TL agirligini girin (gram): ");
+    scanf("%lf", &agirlikTL);
+    printf("50 Kurus agirligini girin (gram): ");
+    scanf("%lf", &agirlikYarim);
+    printf("25 Kurus agirligini girin (gram): ");
+    scanf("%lf", &agirlikCeyrek);
+    printf("10 Kurus agirligini girin (gram): ");
+    scanf("%lf", &agirlikOnKurus);
+
+    float toplamTL = cevirTL(agirlikTL, agirlikYarim, agirlikCeyrek, agirlikOnKurus);
+
+    printf("Toplam TL miktari: %.2f\n", toplamTL);
+
+    return 0;
+}
