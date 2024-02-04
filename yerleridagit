@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define SATIR 9
+#define SUTUN 9
+#define DAIRE_SAYISI 54
+
+void yerDegistir(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void karistir(int daireler[]) {
+    srand(time(NULL));
+
+    for (int i = DAIRE_SAYISI - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        yerDegistir(&daireler[i], &daireler[j]);
+    }
+}
+
+void yerleriDagit(int yerler[SATIR][SUTUN], int daireler[]) {
+    int index = 0;
+    for (int i = 0; i < SATIR; i++) {
+        for (int j = 0; j < SUTUN; j++) {
+            if (i % 3 == 0) {
+                yerler[i][j] = 0; // Araç giriş-çıkış alanı
+            } else {
+                
+yerler[i][j] = daireler[index]; // Daire sahibine ait yer numarası
+                index++;
+            }
+        }
+    }
+}
+void ekranaYazdir(int yerler[SATIR][SUTUN]) {
+    for (int i = 0; i < SATIR; i++) {
+        for (int j = 0; j < SUTUN; j++) {
+            printf("%2d ", yerler[i][j]);
+        }
+        printf("\n");
+    }
+}
+int main() {
+    int yerler[SATIR][SUTUN];
+    int daireler[DAIRE_SAYISI];
+
+    // Daire numaralarını 1'den DAIRE_SAYISI'ne kadar doldur
+    for (int i = 0; i < DAIRE_SAYISI; i++) {
+        daireler[i] = i + 1;
+    }
+    karistir(daireler); // Daire numaralarını karıştır
+    yerleriDagit(yerler, daireler); // Yerleri dağıt
+    ekranaYazdir(yerler); // Yerleri ekrana yazdır
+
+    return 0;
+
+
+}
