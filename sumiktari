@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main(){
+	float son, ilk, tuketimMiktari, tuketimTutari, atikSu, toplam;
+	
+	printf("Ilk gostergeyi giriniz:\n");
+	scanf("%f", &ilk);
+	
+	printf("Son gostergeyi giriniz: \n");
+	scanf("%f", &son);
+	
+	tuketimMiktari = son - ilk;
+	printf("Tuketim miktari: %.2f\n", tuketimMiktari );
+	
+	tuketimTutari = tuketimMiktari * (0.91285);
+	printf("Tuketim tutari: %.2f\n", tuketimTutari );
+	
+	atikSu = tuketimTutari / 2;
+	printf("Atik su: %.2f\n", atikSu );
+
+	toplam = atikSu + tuketimTutari ;
+	printf("Toplam: %.2f\n", toplam );
+	
+	return 0;
+}
