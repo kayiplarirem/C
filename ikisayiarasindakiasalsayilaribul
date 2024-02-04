@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+// Fonksiyon prototipleri
+int asalMi(int num);
+void asalyaz(int baslangic, int bitis);
+
+// main fonksiyonu
+int main() {
+    int baslangic, bitis;
+    printf("Baslangic sayisini girin: ");
+    scanf("%d", &baslangic);
+    printf("Bitis sayisini girin: ");
+    scanf("%d", &bitis);
+    
+    asalyaz(baslangic, bitis);
+
+    return 0;
+}
+
+// asalMi fonksiyonunun tanimlanmasi
+int asalMi(int num) {
+    if (num <= 1) 
+        return 0;
+    if (num == 2) 
+        return 1;
+
+
+
+
+    
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) 
+            return 0;
+    }
+    
+    return 1;
+}
+
+// asalyaz fonksiyonunun tanimlanmasi
+void asalyaz(int baslangic, int bitis) {
+    for (int i = baslangic; i <= bitis; i++) {
+        if (asalMi(i)) 
+            printf("%d ", i);
+    }
+    printf("\n");
+}
