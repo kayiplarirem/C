@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+float hesapla(int n) {
+    float toplam = 0.0;
+
+    for(int i=1; i<=n; i++){
+        toplam += (float)(i+1)/i;
+    }
+
+    return toplam;
+}
+
+int main() {
+    int n;
+    printf("Bir sayi girin: ");
+    scanf("%d", &n);
+
+    float sonuc = hesapla(n);
+
+    printf("Sonuc: %.2f\n", sonuc);
+
+    return 0;
+}
