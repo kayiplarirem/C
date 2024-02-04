@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+int main() {
+    int dizi[SIZE];
+    int i, j;
+
+    printf("10 adet pozitif tamsayi giriniz: ");
+
+    for (i = 0; i < SIZE; i++) {
+        scanf("%d", &dizi[i]);
+    }
+
+    for (i = 0; i < SIZE; i++) {
+        int tekrar = 0;
+
+        for (j = 0; j < i; j++) {
+            if (dizi[i] == dizi[j]) {
+                tekrar = 1;
+                break;
+            }
+        }
+
+        if (tekrar == 1)
+            continue;
+
+
+
+
+        int count = 1;
+        for (j = i + 1; j < SIZE; j++) {
+            if (dizi[i] == dizi[j]) {
+                count++;
+            }
+        }
+
+        printf("%d sayisindan %d tane\n", dizi[i], count);
+    }
+
+    return 0;
+}
