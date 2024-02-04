@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+#define SATIR 4
+#define SUTUN 3
+
+void kabarcikSiralama(int dizi[][SUTUN]) {
+    for (int i = 0; i < SATIR; i++) {
+        for (int j = 0; j < SUTUN - 1; j++) {
+            for (int k = 0; k < SUTUN - j - 1; k++) {
+                if (dizi[i][k] > dizi[i][k + 1]) {
+                    int temp = dizi[i][k];
+                    dizi[i][k] = dizi[i][k + 1];
+                    dizi[i][k + 1] = temp;
+                }
+            }
+        }
+    }
+}
+
+void diziYazdir(int dizi[][SUTUN]) {
+    for (int i = 0; i < SATIR; i++) {
+        for (int j = 0; j < SUTUN; j++) {
+            printf("%d ", dizi[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+
+int main() {
+    int dizi[SATIR][SUTUN] = {{2, 1, 0},
+                              {1, 4, 3},
+                              {8, 8, 3},
+                              {5, 8, 8}};
+
+    printf("Dizinin sirasiz hali:\n");
+    diziYazdir(dizi);
+
+    kabarcikSiralama(dizi);
+
+    printf("\nDizinin sirali hali:\n");
+    diziYazdir(dizi);
+
+    return 0;
+}
+
