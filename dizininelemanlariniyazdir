@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    float a[6], b[6], c[12];
+    int i, j = 0;
+
+    // a dizisi için kullanıcıdan giriş al
+    printf("a dizisinin elemanlarini giriniz: ");
+    for(i = 0; i < 6; ++i) {
+        scanf("%f", &a[i]);
+    }
+
+    // b dizisi için kullanıcıdan giriş al
+    printf("b dizisinin elemanlarini giriniz: ");
+    for(i = 0; i < 6; ++i) {
+        scanf("%f", &b[i]);
+    }
+
+    // a ve b dizilerini sırayla karıştırarak c dizisini oluştur
+    for(i = 0; i < 6; ++i) {
+        c[j++] = a[i];
+        c[j++] = b[i];
+    }
+    // c dizisinin elemanlarını ekrana yazdır
+    printf("c dizisinin elemanlari: ");
+    for(i = 0; i < 12; ++i) {
+        printf("%.1f ", c[i]);
+    }
+
+    return 0;
+}
