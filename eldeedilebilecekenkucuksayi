@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+int main() {
+    int girilen_sayi, birler, onlar, yuzler;
+
+    printf("Uc basamakli bir tamsayi girin: ");
+    scanf("%d", &girilen_sayi);
+
+    if (girilen_sayi < 100 || girilen_sayi > 999) {
+        printf("Lutfen 3 basamakli bir tamsayi girin.\n");
+        return 1;
+    }
+
+    yuzler = girilen_sayi / 100;
+    onlar = (girilen_sayi / 10) % 10;
+    birler = girilen_sayi % 10;
+
+    if (yuzler < onlar && yuzler < birler) {
+    	if (onlar < birler){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", yuzler, onlar, birler );
+			}
+		}
+		
+	if (yuzler < onlar && yuzler < birler) {
+    	if (birler < onlar){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", yuzler, birler, onlar );
+			}
+		}
+		
+		
+	if (onlar < yuzler && onlar < birler) {
+    	if (yuzler < birler){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", onlar, yuzler, birler );
+			}
+		}
+		
+	if (onlar < yuzler && onlar < birler) {
+    	if (birler < yuzler){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", onlar, birler, yuzler );
+			}
+		}
+		
+		
+		
+	if (birler < yuzler && birler < onlar) {
+    	if (yuzler < onlar){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", birler, yuzler, onlar );
+			}
+		}
+		
+	if (birler < yuzler && birler < onlar) {
+    	if (onlar < yuzler){
+    			printf("Bu sayidan elde edilebilecek en kucuk sayi: %d%d%d \n", birler, onlar, yuzler );
+			}
+		}
+		
+
+    return 0;
+}
