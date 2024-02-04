@@ -1,0 +1,31 @@
+int main(){
+	int saniye1, saniye, dakika, saat, dakika1, saat1, saat2, dakika2, saniye2;
+	printf("Zamani giriniz (saat, dakika, saniye):/n");
+	scanf("%d %d %d", &saat, &dakika, &saniye);
+	
+	printf("Eklenecek sureyi giriniz (saniye): /n");
+	scanf("%d", &saniye1);
+	
+    saniye1 = saniye;
+	dakika1 = saniye / 60;
+	saniye = saniye % 60;
+	saat1 = dakika1 / 60;
+	dakika1 = dakika1 % 60;
+	
+	printf("-------------------------/n");
+	
+	printf("%d %d %d /n", saat1, dakika1, saniye);
+	
+	printf(" %d saniye ; %d saat, %d dakika, %d saniye eder/n" , saniye1, saat1, dakika1, saniye1);
+	
+	saat2 = saat1 + saat;
+	dakika2 = dakika1 + dakika;
+	saniye2 = saniye1 + saniye;
+	
+	
+	printf("Yeni zaman: %d %d %d" , saat2, dakika2, saniye2);
+	
+	
+	
+	return 0;
+}
