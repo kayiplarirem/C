@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+#define SINIF_BOYUTU 20
+
+void notlari_artir(int notlar[], int boyut) {
+    int en_buyuk = 0;
+    for (int i = 0; i < boyut; i++) {
+        if (notlar[i] > en_buyuk) {
+            en_buyuk = notlar[i];
+        }
+    }
+    
+    float oran = 100.0 / en_buyuk;
+    for (int i = 0; i < boyut; i++) {
+        notlar[i] = notlar[i] * oran;
+    }
+}
+int main() {
+    int notlar[SINIF_BOYUTU];
+    for (int i = 0; i < SINIF_BOYUTU; i++) {
+        printf("%d. ogrencinin notunu giriniz: ", i+1);
+        scanf("%d", &notlar[i]);
+    }
+    notlari_artir(notlar, SINIF_BOYUTU);
+
+    printf("\nArtirilmis notlar: \n");
+    for (int i = 0; i < SINIF_BOYUTU; i++) {
+        printf("%d. ogrencinin yeni notu: %d\n", i+1, notlar[i]);
+    }
+    return 0;
+}
