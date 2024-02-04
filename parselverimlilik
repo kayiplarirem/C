@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+#define BOYUT 10
+
+void enVerimsizParsel(int parseller[][BOYUT]) {
+    int maxVerimlilik = 0;
+    int maxSatir = 0;
+    int maxSutun = 0;
+
+    for (int i = 0; i < BOYUT - 1; i++) {
+        for (int j = 0; j < BOYUT - 1; j++) {
+            int toplamVerimlilik = parseller[i][j] + parseller[i][j + 1] + parseller[i + 1][j] + parseller[i + 1][j + 1];
+            if (toplamVerimlilik > maxVerimlilik) {
+                maxVerimlilik = toplamVerimlilik;
+                maxSatir = i;
+                maxSutun = j;
+            }
+        }
+    }
+
+    printf("En verimsiz 2x2'lik parselin satir indisi: %d\n", maxSatir);
+    printf("En verimsiz 2x2'lik parselin sutun indisi: %d\n", maxSutun);
+}
+
+int main() {
+    int parseller[BOYUT][BOYUT];
+
+    printf("Parsellerin toprak verimlilik degerlerini giriniz:\n");
+
+    for (int i = 0; i < BOYUT; i++) {
+        for (int j = 0; j < BOYUT; j++) {
+            printf("Parsel[%d][%d]: ", i, j);
+            scanf("%d", &parseller[i][j]);
+        }
+    }
+
+    enVerimsizParsel(parseller);
+
+    return 0;
+}
