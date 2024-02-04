@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+    float c[12], a[6], b[6];
+    int i, j = 0, k = 0;
+
+    // c dizisi için kullanıcıdan giriş al
+    printf("c dizisinin elemanlarini giriniz: ");
+    for(i = 0; i < 12; ++i) {
+        scanf("%f", &c[i]);
+    }
+
+    // c dizisini sırayla a ve b dizilerine dağıt
+    for(i = 0; i < 12; ++i) {
+        if(i % 2 == 0)
+            a[j++] = c[i];
+        else
+            b[k++] = c[i];
+    }
+
+    // a dizisinin elemanlarını ekrana yazdır
+    printf("a dizisinin elemanlari: ");
+    for(i = 0; i < 6; ++i) {
+        printf("%.1f ", a[i]);
+    }
+
+    printf("\n");
+
+
+
+    // b dizisinin elemanlarını ekrana yazdır
+    printf("b dizisinin elemanlari: ");
+    for(i = 0; i < 6; ++i) {
+        printf("%.1f ", b[i]);
+    }
+
+    return 0;
+}
