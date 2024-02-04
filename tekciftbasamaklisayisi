@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int girilen_sayi, tek_basamakli = 0, iki_basamakli = 0;
+
+    printf("Pozitif tamsayilar girin (3 basamakli veya daha buyuk bir sayi girerseniz program sonlanacaktir):\n");
+
+    do {
+        scanf("%d", &girilen_sayi);
+
+        if (girilen_sayi < 0) {
+            printf("Lutfen pozitif bir tamsayi girin.\n");
+        } 
+		else if (girilen_sayi < 10) {
+            tek_basamakli++;
+        } 
+		else if (girilen_sayi < 100) {
+            iki_basamakli++;
+        }
+    } while (girilen_sayi < 100);
+
+    printf("Tek basamakli sayilarin sayisi: %d\n", tek_basamakli);
+    printf("Iki basamakli sayilarin sayisi: %d\n", iki_basamakli);
+
+    return 0;
+}
