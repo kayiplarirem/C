@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+// Prototip
+int orijineKareUzaklik(int x, int y);
+void orijineEnYakin(int x1, int y1, int x2, int y2, int x3, int y3);
+
+int main() {
+    int x1, y1, x2, y2, x3, y3;
+
+    printf("1. noktanin koordinatlarini girin: ");
+    scanf("%d%d", &x1, &y1);
+
+    printf("2. noktanin koordinatlarini girin: ");
+    scanf("%d%d", &x2, &y2);
+
+    printf("3. noktanin koordinatlarini girin: ");
+    scanf("%d%d", &x3, &y3);
+
+    orijineEnYakin(x1, y1, x2, y2, x3, y3);
+
+    return 0;
+}
+
+
+int orijineKareUzaklik(int x, int y) {
+    return x*x + y*y;
+}
+
+void orijineEnYakin(int x1, int y1, int x2, int y2, int x3, int y3) {
+    int uzaklik1 = orijineKareUzaklik(x1, y1);
+    int uzaklik2 = orijineKareUzaklik(x2, y2);
+    int uzaklik3 = orijineKareUzaklik(x3, y3);
+
+    if (uzaklik1 <= uzaklik2 && uzaklik1 <= uzaklik3) {
+        printf("Orijine en yakin nokta: (%d, %d)\n", x1, y1);
+    } else if (uzaklik2 <= uzaklik1 && uzaklik2 <= uzaklik3) {
+        printf("Orijine en yakin nokta: (%d, %d)\n", x2, y2);
+    } else {
+        printf("Orijine en yakin nokta: (%d, %d)\n", x3, y3);
+    }
+}
+
+
+
