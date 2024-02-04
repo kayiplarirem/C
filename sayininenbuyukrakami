@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Fonksiyon prototipi
+int sagdanenbuyuk(int sayi);
+
+int main() {
+    int sayi;
+
+    printf("Bir sayi girin: ");
+    scanf("%d", &sayi);
+
+    printf("Sayinin en buyuk rakami, sagdan %d. siradadir.\n", sagdanenbuyuk(sayi));
+
+    return 0;
+}
+
+int sagdanenbuyuk(int sayi) {
+    int enBuyukRakam = -1;
+    int pozisyon = 1, enBuyukRakamPozisyonu = 1;
+    while (sayi > 0) {
+        int rakam = sayi % 10;
+        if (rakam >= enBuyukRakam) {
+            enBuyukRakam = rakam;
+            enBuyukRakamPozisyonu = pozisyon;
+        }
+        sayi /= 10;
+        pozisyon++;
+    }
+    return enBuyukRakamPozisyonu;
+}
