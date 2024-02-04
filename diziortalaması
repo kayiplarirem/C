@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    float a[5], b[5], c[10], average = 0;
+    int i, j = 0;
+
+    // a dizisi için kullanıcıdan giriş al
+    printf("a dizisinin elemanlarini giriniz: ");
+    for(i = 0; i < 5; ++i) {
+        scanf("%f", &a[i]);
+        average += a[i];
+    }
+
+    // b dizisi için kullanıcıdan giriş al
+    printf("b dizisinin elemanlarini giriniz: ");
+    for(i = 0; i < 5; ++i) {
+        scanf("%f", &b[i]);
+        average += b[i];
+    }
+
+    // aritmetik ortalamayı hesapla
+    average /= 10;
+
+    printf("Dizilerin aritmetik ortalamasi = %.2f\n", average);
+
+    // a ve b dizilerinin ortalamadan büyük ya da eşit olan elemanlarını c'ye ekleyin
+    for(i = 0; i < 5; ++i) {
+        if(a[i] >= average)
+            c[j++] = a[i];
+
+        if(b[i] >= average)
+            c[j++] = b[i];
+    }
+
+    // c dizisinin elemanlarını ekrana yazdır
+    printf("c dizisinin elemanlari: ");
+    for(i = 0; i < j; ++i) {
+        printf("%.1f ", c[i]);
+    }
+
+    return 0;
+}
