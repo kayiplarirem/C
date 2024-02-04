@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+#define KUYU_SAYISI 4
+#define KATMAN_SAYISI 5
+
+int main() {
+    int sertlik[KUYU_SAYISI][KATMAN_SAYISI];
+
+    printf("Katmanlarin sertlik miktarini giriniz:\n");
+
+    for (int i = 0; i < KUYU_SAYISI; i++) {
+        printf("%d. Kuyu:\n", i + 1);
+        for (int j = 0; j < KATMAN_SAYISI; j++) {
+            printf("%d. Katman: ", j + 1);
+            scanf("%d", &sertlik[i][j]);
+        }
+    }
+
+    int enAzToplamSertlik = -1;  // Başlangıçta geçerli bir değer atanmamış
+    int enAzToplamSertlikKuyu = -1;
+    int enAzToplamSertlikKatman = -1;
+
+    for (int i = 0; i < KUYU_SAYISI; i++) {
+        int toplamSertlik = 0;
+        for (int j = 0; j < KATMAN_SAYISI; j++) {
+            toplamSertlik += sertlik[i][j];
+        }
+
+
+
+        if (enAzToplamSertlik == -1 || toplamSertlik < enAzToplamSertlik) {
+            enAzToplamSertlik = toplamSertlik;
+            enAzToplamSertlikKuyu = i;
+        }
+    }
+
+    int enAzToplamSertlikKatman = -1;
+    for (int i = 0; i < KATMAN_SAYISI; i++) {
+        int toplamSertlik = 0;
+        for (int j = 0; j < KUYU_SAYISI; j++) {
+            toplamSertlik += sertlik[j][i];
+        }
+
+        if (toplamSertlik == enAzToplamSertlik) {
+            enAzToplamSertlikKatman = i;
+            break;
+        }
+    }
+
+    int enAzToplamSertlikKuyuNo = enAzToplamSertlikKuyu + 1;
+    int enAzToplamSertlikKatmanNo = enAzToplamSertlikKatman + 1;
+
+    printf("Burgu %d. Kuyunun %d. Katmaninda degistirilir.\n", enAzToplamSertlikKuyuNo, enAzToplamSertlikKatmanNo);
+
+    return 0;
+}
