@@ -1,0 +1,34 @@
+#include <stdio.h>
+int main(){
+	int para10, para100, toplamKurus, lira, kalanKurus, kurus10, kurus25;
+	
+	//para10 = 1/4 kurus;
+	//para100 = 2,5 kurus;
+	
+	printf("Elinizdeki 10 para miktarini giriniz:\n");
+	scanf("%d", &para10);
+	
+	printf("Elinizdeki 100 para miktarini giriniz:\n");
+	scanf("%d", &para100);
+	
+	printf("Elinizdeki 10 kurus miktarini giriniz:\n");
+	scanf("%d", &kurus10);
+	
+	printf("Elinizdeki 25 kurus miktarini giriniz:\n");
+	scanf("%d", &kurus25);
+	
+	printf("---------------------\n");
+	
+	toplamKurus = (para10 * 1/4) + (para100 * 2.5) + (kurus10 * 10) + (kurus25 * 25);
+	
+	//1 ira=100 kurus
+	lira = toplamKurus / 100;
+	
+	kalanKurus = toplamKurus % 100;
+
+     printf("Bozukluklarin toplam degeri: %d lira %d kurus eder", lira, kalanKurus);
+	
+	
+	return 0;
+	
+          }
