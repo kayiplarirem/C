@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int girilen_sayi, birler, onlar, yuzler, cift_sayac = 0;
+
+    printf("Rakamlari birbirinden farkli 3 basamakli bir tamsayi girin: ");
+    scanf("%d", &girilen_sayi);
+
+    if (girilen_sayi < 100 || girilen_sayi > 999) {
+        printf("Lutfen 3 basamakli bir tamsayi girin.\n");
+        return 1;
+    }
+
+    yuzler = girilen_sayi / 100;
+    onlar = (girilen_sayi / 10) % 10;
+    birler = girilen_sayi % 10;
+
+    if (yuzler == onlar || yuzler == birler || onlar == birler) {
+        printf("Girdiginiz sayi rakamlari birbirinden farkli bir tamsayi degil.\n");
+        return 1;
+    }
+
+    if (yuzler % 2 == 0) cift_sayac++;
+    if (onlar % 2 == 0) cift_sayac++;
+    if (birler % 2 == 0) cift_sayac++;
+
+    printf("Girilen sayinin rakamlarindan %d tanesi cifttir.\n", cift_sayac);
+
+    return 0;
+}
