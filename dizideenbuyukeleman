@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+float ikinciEnBuyuk(float dizi[], int elemanSayisi) {
+    if (elemanSayisi < 2) {
+        printf("Dizide yeterli sayida eleman yok!\n");
+        return 0;
+    }
+
+    float enBuyuk = dizi[0];
+    float ikinciEnBuyuk = dizi[1];
+
+    if (enBuyuk < ikinciEnBuyuk) {
+        float temp = enBuyuk;
+        enBuyuk = ikinciEnBuyuk;
+        ikinciEnBuyuk = temp;
+    }
+
+    for (int i = 2; i < elemanSayisi; i++) {
+        if (dizi[i] > enBuyuk) {
+            ikinciEnBuyuk = enBuyuk;
+            enBuyuk = dizi[i];
+        } else if (dizi[i] > ikinciEnBuyuk && dizi[i] < enBuyuk) {
+            ikinciEnBuyuk = dizi[i];
+        }
+    }
+    return ikinciEnBuyuk;
+}
+
+int main() {
+    float dizi[] = {3.5, 2.1, 4.7, 1.8, 5.2};
+}
+
