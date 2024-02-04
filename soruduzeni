@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void shuffleArray(int array[], int size) {
+    srand(time(NULL));
+
+    for (int i = size - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+int main() {
+    int sorular[10];
+    for (int i = 0; i < 10; i++) {
+        sorular[i] = i + 1;
+    }
+
+    shuffleArray(sorular, 10);
+
+    printf("Sorularin sinavdaki duzenleri asagidaki gibi olabilir: ");
+    for (int i = 0; i < 10; i++) {
+        printf("%d ", sorular[i]);
+    }
+
+    return 0;
+}
