@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int girilenSayi, ab, cd, ba, dc;
+
+    printf("4 basamakli bir sayi girin (abcd):\n ");
+    scanf("%d", &girilenSayi);
+
+    if (girilenSayi < 1000 || girilenSayi > 9999) {
+        printf("Lutfen 4 basamakli bir sayi girin.\n");
+        
+        return 0;
+    }
+
+    ab = girilenSayi / 100;
+    cd = girilenSayi % 100;
+
+    ba = (ab % 10) * 10 + (ab / 10);
+    dc = (cd % 10) * 10 + (cd / 10);
+
+    if (ab * cd == ba * dc) {
+        printf("%d sayisi bir Tersyuz Sayidir.\n", girilenSayi);
+        
+    } else {
+        printf("%d sayisi bir Tersyuz Sayi degildir.\n", girilenSayi);
+    }
+
+    return 0;
+}
