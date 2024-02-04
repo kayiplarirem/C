@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+// Fonksiyon prototipleri
+int bolenlerToplami(int sayi);
+int ahbapBul(int sayi);
+
+int main() {
+    int sayi;
+
+    printf("Bir sayi girin: ");
+    scanf("%d", &sayi);
+
+    int ahbapSayi = ahbapBul(sayi);
+
+    if (ahbapSayi != 0) {
+        printf("%d sayisinin ahbap sayisi: %d\n", sayi, ahbapSayi);
+    } else {
+        printf("%d sayisinin ahbap sayisi yok.\n", sayi);
+    }
+    return 0;
+}
+int bolenlerToplami(int sayi) {
+    int toplam = 0;
+    for (int i = 1; i <= sayi; i++) {
+        if (sayi % i == 0) {
+            toplam += i;
+        }
+    }
+    return toplam;
+}
+
+int ahbapBul(int sayi) {
+    for (int i = 1; i < sayi; i++) {
+        if ((float)bolenlerToplami(i) / i == (float)bolenlerToplami(sayi) / sayi) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+
