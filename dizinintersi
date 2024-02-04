@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+void diziyi_ters_cevir(int dizi[], int boyut) {
+    int bas = 0;
+    int son = boyut - 1;
+    int gecici;
+
+    while (bas < son) {
+        gecici = dizi[bas];
+        dizi[bas] = dizi[son];
+        dizi[son] = gecici;
+
+        bas++;
+        son--;
+    }
+}
+
+int main() {
+    int dizi[SIZE];
+    int i;
+
+    printf("10 adet tamsayi giriniz: ");
+
+    for (i = 0; i < SIZE; i++) {
+        scanf("%d", &dizi[i]);
+    }
+
+    diziyi_ters_cevir(dizi, SIZE);
+
+    printf("Dizinin ters hali: ");
+
+    for (i = 0; i < SIZE; i++) {
+        printf("%d ", dizi[i]);
+    }
+
+    return 0;
+}
