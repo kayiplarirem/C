@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int konuk_yasi, talip_yasi;
+    int daha_gencler = 0, daha_yaslilar = 0, denkler = 0, toplam_talip_yasi = 0, talip_sayisi = 0;
+
+    printf("Es arayan konugun yasini girin: ");
+    scanf("%d", &konuk_yasi);
+
+    printf("Taliplerin yaslarini girin (0 girerseniz program sonlanacaktir):\n");
+
+    while (1) {
+        scanf("%d", &talip_yasi);
+
+        if (talip_yasi == 0) {
+            break;
+        }
+
+        talip_sayisi++;
+        toplam_talip_yasi += talip_yasi;
+
+        if (talip_yasi < konuk_yasi) {
+            daha_gencler++;
+        } else if (talip_yasi > konuk_yasi) {
+            daha_yaslilar++;
+        } else {
+            denkler++;
+        }
+    }
+
+    float ort_yas = (talip_sayisi > 0) ? (float)toplam_talip_yasi / talip_sayisi : 0;
+
+    printf("Daha gencler: %d\n", daha_gencler);
+    printf("Daha yaslilar: %d\n", daha_yaslilar);
+    printf("Denkler: %d\n", denkler);
+    printf("Taliplerin yas ortalamasi: %.2f\n", ort_yas);
+
+    return 0;
+}
