@@ -1,0 +1,47 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void zamanUret(char zamanDilimi) {
+    srand(time(0));  // rastgele sayı üretimini başlatıyoruz
+
+    int saat, dakika, saniye;
+
+    switch(zamanDilimi) {
+        case 's':  // sabah dilimi
+            saat = rand() % 3 + 8;
+            dakika = rand() % 60;
+            saniye = rand() % 60;
+            break;
+        case 'o':  // öğle dilimi
+            saat = rand() % 5 + 11;
+            dakika = rand() % 60;
+            saniye = rand() % 60;
+            break;
+        case 'a':  // akşam dilimi
+            saat = rand() % 7 + 16;
+            dakika = rand() % 60;
+            saniye = rand() % 60;
+            break;
+        default:
+            printf("Hatalı zaman dilimi girildi.\n");
+            return;
+    }
+
+    printf("%02d:%02d:%02d\n", saat, dakika, saniye);
+}
+
+int main() {
+    char zamanDilimi;
+    printf("Zaman dilimini girin (sabah için 's', öğle için 'o', akşam için 'a'): ");
+    scanf(" %c", &zamanDilimi);  // Boşluk koydum çünkü scanf bazen hatalı çalışabiliyor
+    
+    zamanUret(zamanDilimi);
+
+    return 0;
+}
+
+
+
+
