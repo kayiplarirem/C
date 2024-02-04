@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int es_arayan_kisi_yasi, aday1_yasi, aday2_yasi, aday3_yasi;
+    int fark1, fark2, fark3;
+
+    printf("Es arayan kisinin yasini girin: ");
+    scanf("%d", &es_arayan_kisi_yasi);
+
+    printf("Aday 1'in yasini girin: ");
+    scanf("%d", &aday1_yasi);
+
+    printf("Aday 2'in yasini girin: ");
+    scanf("%d", &aday2_yasi);
+
+    printf("Aday 3'in yasini girin: ");
+    scanf("%d", &aday3_yasi);
+
+    fark1 = abs(es_arayan_kisi_yasi - aday1_yasi);
+    fark2 = abs(es_arayan_kisi_yasi - aday2_yasi);
+    fark3 = abs(es_arayan_kisi_yasi - aday3_yasi);
+
+    if (fark1 <= fark2 && fark1 <= fark3) {
+        printf("Yasina en yakin adayin numarasi: 1\n");
+        
+    } 
+	else if (fark2 <= fark1 && fark2 <= fark3) {
+        printf("Yasina en yakin adayin numarasi: 2\n");
+        
+    } else {
+        printf("Yasina en yakin adayin numarasi: 3\n");
+    }
+
+    return 0;
+}
