@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define SIZE 10
+
+void eleme(int dizi[], int n) {
+    int i, j;
+
+    for (i = 0; i < n; i++) {
+        if (dizi[i] != -1) {
+            for (j = i + 1; j < n; j++) {
+                if (dizi[i] == dizi[j]) {
+                    dizi[j] = -1;
+                }
+            }
+            if (dizi[i] == -1) {
+                dizi[i] = -1;
+            }
+        }
+    }
+}
+
+int main() {
+    int dizi[SIZE];
+    int i;
+
+    printf("Dizinin elemanlarini giriniz: ");
+
+    for (i = 0; i < SIZE; i++) {
+        scanf("%d", &dizi[i]);
+    }
+
+    eleme(dizi, SIZE);
+
+    printf("Dizinin son hali:\n");
+
+    for (i = 0; i < SIZE; i++) {
+        printf("%d,", dizi[i]);
+    }
+
+    return 0;
+}
