@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+#define MAX_IL 50
+
+int main() {
+    int il_sayisi;
+    int plaka[MAX_IL];
+    int destek_miktari[MAX_IL];
+
+    printf("Il sayisini giriniz: ");
+    scanf("%d", &il_sayisi);
+
+    for (int i = 0; i < il_sayisi; i++) {
+        printf("%d. ilin plakasi ve destek miktarini giriniz: ", i+1);
+        scanf("%d %d", &plaka[i], &destek_miktari[i]);
+    }
+
+    int min_destek_index = 0;
+    for (int i = 1; i < il_sayisi; i++) {
+        if (destek_miktari[i] < destek_miktari[min_destek_index]) {
+            min_destek_index = i;
+        }
+    }
+
+    printf("\nEn az destek alan ilin gore, illerin fazlalari\n");
+    printf("Il : ");
+    for (int i = 0; i < il_sayisi; i++) {
+        printf("%d ", plaka[i]);
+    }
+    printf("\nFazla: ");
+    for (int i = 0; i < il_sayisi; i++) {
+        if (i == min_destek_index) {
+            printf("0 ");
+        } else {
+            printf("%d ", destek_miktari[i] - destek_miktari[min_destek_index]);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
