@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+// Fonksiyon prototipi
+int icindeVarMi(int sayi, int rakam);
+
+int main() {
+    int sayi, rakam;
+    printf("Bir sayi girin: ");
+    scanf("%d", &sayi);
+    printf("Bulunacak rakami girin: ");
+    scanf("%d", &rakam);
+
+    if(icindeVarMi(sayi, rakam)) {
+        printf("%d sayisi, %d rakamini icerir.\n", sayi, rakam);
+    } 
+else {
+        printf("%d sayisi, %d rakamini icermemektedir.\n", sayi, rakam);
+    }
+    return 0;
+}
+int icindeVarMi(int sayi, int rakam) {
+    while (sayi > 0) {
+        if (sayi % 10 == rakam) {
+            return 1;
+        }
+        sayi /= 10;
+    }
+    return 0;
+}
