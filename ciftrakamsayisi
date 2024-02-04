@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Fonksiyon prototipi
+int ciftRakamSay(int sayi);
+
+int main() {
+    int sayi;
+
+    printf("Bir sayi girin: ");
+    scanf("%d", &sayi);
+
+    printf("Girilen sayida %d adet cift rakam vardir.\n", ciftRakamSay(sayi));
+
+    return 0;
+}
+
+int ciftRakamSay(int sayi) {
+    int sayac = 0;
+
+    while (sayi > 0) {
+        if ((sayi % 10) % 2 == 0) {
+            sayac++;
+        }
+        sayi /= 10;
+    }
+
+    return sayac;
+}
+
+
