@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+// İki çap arasındaki bilye sayısını hesaplayan fonksiyon
+int enkArasiUzaklik(float bilye[], int n) {
+    float enKucuk = bilye[0], enBuyuk = bilye[0];
+    int enKucukIndeks = 0, enBuyukIndeks = 0;
+    
+    for (int i = 1; i < n; i++) {
+        if (bilye[i] < enKucuk) {
+            enKucuk = bilye[i];
+            enKucukIndeks = i;
+        }
+        if (bilye[i] > enBuyuk) {
+            enBuyuk = bilye[i];
+            enBuyukIndeks = i;
+        }
+    }
+    int aradakiSayi = enBuyukIndeks - enKucukIndeks - 1;
+    return (aradakiSayi > 0) ? aradakiSayi : -aradakiSayi;
+}
+
+
+
+
+
+
+
+
+
+
+int main() {
+    const int maxBilye = 50;
+    float bilye[maxBilye];
+    int n;
+
+    
+
+
+
+do {
+        printf("Kac adet bilye capi gireceksiniz: ");
+        scanf("%d", &n);
+        if (n > maxBilye) {
+            printf("Yanlis!! En fazla 50 girebilirsiniz\n");
+        }
+    } while (n > maxBilye);
+
+    printf("%d adet cap giriniz: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%f", &bilye[i]);
+    }
+
+    int sonuc = enkArasiUzaklik(bilye, n);
+    printf("\nEn buyuk ile en kucuk arasinda %d adet bilye vardir.\n", sonuc);
+
+    return 0;
+}
