@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int girilen_sayi, yuvarlanmis_sayi, son_uc_hane;
+
+    printf("5 basamakli bir tamsayi girin: ");
+    scanf("%d", &girilen_sayi);
+
+    if (girilen_sayi < 10000 || girilen_sayi > 99999) {
+        printf("Lutfen 5 basamakli bir tamsayi girin.\n");
+        return 1;
+    }
+
+    son_uc_hane = girilen_sayi % 1000;
+    yuvarlanmis_sayi = girilen_sayi - son_uc_hane;
+
+    if (son_uc_hane >= 500) {
+        yuvarlanmis_sayi += 1000;
+    }
+
+    printf("Yuvarlanmis sayi: %d\n", yuvarlanmis_sayi);
+
+    return 0;
+}
