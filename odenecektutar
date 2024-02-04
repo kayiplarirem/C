@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main() {
+    char urun_kodu;
+    float siparis_miktari, odenecek_tutar;
+
+    printf("Urun kodunu girin (T/t: Transistor, D/d: Direnc, K/k: Kondansator): ");
+    scanf(" %c", &urun_kodu);
+
+    printf("Siparis miktari (dolar) girin: ");
+    scanf("%f", &siparis_miktari);
+
+    switch (urun_kodu) {
+        case 'T':
+        case 't':
+            if (siparis_miktari > 1000) {
+                odenecek_tutar = siparis_miktari - ((siparis_miktari * 10) / 100);
+            } 
+			else {
+                odenecek_tutar = siparis_miktari;
+            }
+            break;
+            
+        case 'D':
+        case 'd':
+            if (siparis_miktari > 100) {
+                odenecek_tutar = siparis_miktari - ((siparis_miktari * 5) / 100);
+            } 
+			else {
+                odenecek_tutar = siparis_miktari;
+            }
+            break;
+            
+        case 'K':
+        case 'k':
+            if (siparis_miktari > 500) {
+                odenecek_tutar = siparis_miktari - ((siparis_miktari * 8) / 100);
+            } 
+			else {
+                odenecek_tutar = siparis_miktari;
+            }
+            break;
+            
+        default:
+        	
+            printf("Gecersiz urun kodu!\n");
+            return 1;
+    }
+
+    printf("Odenecek tutar: %.2f$\n", odenecek_tutar);
+    return 0;
+}
